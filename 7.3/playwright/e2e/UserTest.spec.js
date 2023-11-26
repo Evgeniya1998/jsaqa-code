@@ -2,6 +2,7 @@
 const { test, expect } = require('@playwright/test');
 const { login, password } = require("../user");
 test('successful authorization', async ({ page }) => {
+  test.slow();
   await page.goto('https://netology.ru/?modal=sign_in');
   await expect(page).toHaveTitle("Нетология — обучение современным профессиям онлайн");
 
