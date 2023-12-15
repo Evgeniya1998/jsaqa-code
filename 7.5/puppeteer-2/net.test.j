@@ -15,7 +15,7 @@ afterEach(() => {
 describe("Netology.ru tests", () => {
   beforeEach(async () => {
     page = await browser.newPage();
-    await page.goto("https://netology.ru");
+    await page.goto("https://qamid.tmweb.ru/client/index.php");
   });
 
   test("The first test'", async () => {
