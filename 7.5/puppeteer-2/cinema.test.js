@@ -21,7 +21,7 @@ describe("films tests", () => {
    test("Happy path of one ticket buying", async() => {
      await chooseDay(page, "3");
      await chooseFilm(page, "1");
-     await chooseSeat(page, "8", "2");
+     await chooseSeat(page, "8", "7");
      await clickElement(page, ".acceptin-button");
      const actual = await getText(page, "h2");
      const expected = "Вы выбрали билеты:";
@@ -34,7 +34,7 @@ describe("films tests", () => {
      await chooseSeat(page, "3", "8");
      await chooseSeat(page, "3", "9");
      await clickElement(page, ".acceptin-button");
-     const actual = await getText(page, "h1");
+     const actual = await getText(page, "h2");
      const expected = "Вы выбрали билеты:";
      expect(actual).toContain(expected);
    });
