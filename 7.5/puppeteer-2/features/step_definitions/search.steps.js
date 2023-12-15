@@ -16,12 +16,7 @@ After(async function () {
     await this.browser.close();
   }
 });
-// Given("user is on {string} page", async function (string) {
-//  // return await this.page.goto(`https://qamid.tmweb.ru/client/index.php${string}`, {
-//    // setTimeout: 20000,
-//    await this.page.goto(string);
-//   });
-// //});
+
 Given("user is on {string} page", async function (string) {
   return await this.page.goto(`https://qamid.tmweb.ru/client/index.php/${string}`, {
     setTimeout: 20000,
@@ -72,18 +67,6 @@ async function (string) {
   return await this.page.goto(`https://qamid.tmweb.ru/client/index.php/${string}`, {
    });
   })
-// Then("user2 see that the button is not activated {string}", async function (string) {
-//   const actual = await page.$eval('.acceptin-button', (button) => {
-//     return button.disabled;
-//      });
-//     expect(actual).toEqual(true);
-  
-// });
-// Then("user see information {string}", async function (string) {
-//   const actual = await getText(this.page, "h2");
-//   const expected = await string;
-//   expect(actual).contain(expected);
-// });
 
 Then("user2 see that the button {string} is not activated",
   { timeout: 60000 },
@@ -94,18 +77,3 @@ Then("user2 see that the button {string} is not activated",
     );
     await expect(acceptionButton).equal(true);
   });
-// Given("user is on {string} page", async function (string) {
-//   return await this.page.goto(`https://netology.ru${string}`, {
-//     setTimeout: 20000,
-//   });
-// });
-
-// When("user search by {string}", async function (string) {
-//   return await putText(this.page, "input", string);
-// });
-
-// Then("user sees the course suggested {string}", async function (string) {
-//   const actual = await getText(this.page, "a[data-name]");
-//   const expected = await string;
-//   expect(actual).contains(expected);
-// });

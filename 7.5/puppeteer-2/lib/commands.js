@@ -15,17 +15,6 @@ module.exports = {
       throw new Error(`Text is not available for selector: ${selector}`);
     }
   },  
-  
-  chooseFilm: async function (page, film) {
-    try {
-      await page.waitForSelector('.page-header');
-      const seancesPage = `body > main > section:nth-child(${film}) > div.movie-seances__hall > ul > li > a`;
-      await page.click(seancesPage);
-    } catch (error) {
-      throw new Error(`Ошибка в выборе фильма!`);
-    }
-  },
-
   chooseSeat: async function (page, row, seat) {
     try {
       const selector = `main > section div:nth-child(${row}) > span:nth-child(${seat})`;
@@ -35,7 +24,15 @@ module.exports = {
       throw new Error(`Ошибка в выборе ряда и (или) места!`); 
     }
   },
-
+chooseFilm: async function (page, film) {
+    try {
+      await page.waitForSelector('.page-header');
+      const seancesPage = `body > main > section:nth-child(${film}) > div.movie-seances__hall > ul > li > a`;
+      await page.click(seancesPage);
+    } catch (error) {
+      throw new Error(`Ошибка в выборе фильма!`);
+    }
+  },
   chooseDay : async function (page, day) {
     try {
       let date = `nav > a:nth-child(${day}) > span.page-nav__day-number`;
