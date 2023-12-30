@@ -1,4 +1,4 @@
-//const {email, password} = require ("../support/commands.js");
+
 describe("template spec", () => {
   beforeEach(() => {
     cy.visit("/");
@@ -9,14 +9,20 @@ describe("template spec", () => {
   });
 
   it('should be test successful login', () => {
-    cy.contains('log in').click()
-    cy.login('bropet@mail.ru', '123')
+    cy.contains('Log in').click()
+    cy.get('#mail').type('bropet@mail.ru');
+    cy.get('#pass').type('123');
+    cy.contains('Submit').click();
+    //cy.login('bropet@mail.ru', '123')
     cy.contains('Добро пожаловать bropet@mail.ru').should('be.visible');
   });
 
   it('should be test empty email', () => {
-    cy.visit('/')
-    cy.login('null', '123')
+   cy.contains('Log in').click()
+    cy.get('#mail');
+    cy.get('#pass').type('123');
+    cy.contains('Submit').click();
+    //cy.login('null', '123')
     cy.get("#mail")
       .then(($el) => $el[0].checkValidity())
       .should("be.false");
